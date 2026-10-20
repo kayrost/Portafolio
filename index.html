@@ -1,74 +1,736 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mi documento</title>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- SEO & Metadata -->
+    <title>Santiago Higuera | Desarrollador Frontend Junior & Creador</title>
+    <meta name="description" content="Portafolio profesional de Santiago Higuera (kayrost), Desarrollador Frontend Junior y estudiante de Ingeniería de Sistemas. Especializado en HTML5, CSS3 y JavaScript moderno.">
+    <meta name="author" content="Santiago Higuera">
+    <meta name="keywords" content="Santiago Higuera, kayrost, Desarrollador Junior, Frontend, HTML, CSS, JavaScript, Portafolio Web, Ingeniería de Sistemas">
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Santiago Higuera | Desarrollador Frontend Junior">
+    <meta property="og:description" content="Desarrollador Junior y estudiante de Ingeniería de Sistemas apasionado por crear experiencias web modernas, limpias y funcionales.">
+    <meta property="og:image" content="assets/profile.jpg">
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Hoja de Estilos Principal -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/profile.jpg">
 </head>
 <body>
-    <header>
-        <nav class="navegador">
-               <div class="Perfil">
-                      <img src="https://i.pinimg.com/1200x/4d/e2/b7/4de2b7df3864ced01707f8c88e7377f0.jpg"> 
-               </div>
-            <div> 
-               <ul class="opciones">
-                 <li class="navOpcion"><a href="#Inicio">Inicio</a></li>
-                 <li class="navOpcion"><a href="#Projectos">Projectos</a></li>
-                 <li class="navOpcion"><a href="#contacto">contacto</a></li>
-               </ul>
-            </div>
+    <!-- Barra de progreso de lectura superior -->
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+    <!-- Fondo de partículas y resplandores atmosféricos -->
+    <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+
+    <!-- ==================== HEADER & NAVEGACIÓN ==================== -->
+    <header class="header" id="header">
+        <nav class="nav-container" aria-label="Navegación principal">
+            <!-- Identidad / Logo -->
+            <a href="#inicio" class="nav-brand" aria-label="Santiago Higuera Inicio">
+                <span class="brand-bracket">&lt;</span>
+                <span class="brand-name">Santiago</span>
+                <span class="brand-tag">/&gt;</span>
+            </a>
+
+            <!-- Menú de enlaces de escritorio -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link active">
+                        <span class="nav-num">01.</span>Inicio
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sobre-mi" class="nav-link">
+                        <span class="nav-num">02.</span>Sobre Mí
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#habilidades" class="nav-link">
+                        <span class="nav-num">03.</span>Habilidades
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#proyectos" class="nav-link">
+                        <span class="nav-num">04.</span>Proyectos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#trayectoria" class="nav-link">
+                        <span class="nav-num">05.</span>Trayectoria
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link">
+                        <span class="nav-num">06.</span>Contacto
+                    </a>
+                </li>
+                <li class="nav-item nav-item-cta">
+                    <a href="#contacto" class="btn btn-sm btn-outline">Hablemos</a>
+                </li>
+            </ul>
+
+            <!-- Botón de Menú Hamburguesa para Móvil -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navMenu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
         </nav>
     </header>
-    <main>
-        <section id="Inicio">
-            <div class="Inicio_presentacion">
-                 <article> <!--no se si fue necesario ponerlo en article pues lo hice por lo de la buena practica del buscador de google -->
-                    <h1>Hola mundo!, soy Santiago Higuera</h1>
-                    <h2>desarollador junior y estudiante de Ingenieria en Sitemas</h2>
-                </article>
-            </div>
-            <div class="Inicio_Tecnologias">
-                <img src="html.png">
-                <img src="css.png">
-                <img src="js.png">
-            </div>
-            <div class="Inicio_yo">
-                <article>
-                    <h2>Programador frontend</h2>
-                    <p>Junior por hoy, pero con aspiraciones a aprender otros lenguajes y crecer tanto laboral como personalmente</p>
-                </article>
+
+    <!-- Menú Drawer para Dispositivos Móviles -->
+    <div class="mobile-drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+
+    <main id="mainContent">
+        <!-- ==================== SECCIÓN 1: HERO / INICIO ==================== -->
+        <section class="section hero-section" id="inicio">
+            <div class="container hero-grid">
+                <!-- Columna de Texto -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="status-dot"></span>
+                        <span>Disponible para nuevos retos & aprendizaje continuo</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">¡Hola mundo! Soy</span>
+                        <span class="hero-name-highlight">Santiago Higuera</span>
+                    </h1>
+
+                    <h2 class="hero-role">
+                        Desarrollador Frontend Junior <span class="role-separator">&amp;</span> Estudiante de Ing. de Sistemas
+                    </h2>
+
+                    <p class="hero-description">
+                        Construyo experiencias web modernas, limpias y accesibles con sólidas bases en 
+                        <strong>HTML5</strong>, <strong>CSS3</strong> y <strong>JavaScript</strong>. Con mentalidad 
+                        autodidacta, disciplina y entusiasmo constante por resolver problemas a través del código.
+                    </p>
+
+                    <!-- Acciones principales -->
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="btn btn-primary">
+                            <span>Ver Proyectos</span>
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/kayrost" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                            <span>kayrost en GitHub</span>
+                        </a>
+                        <a href="#contacto" class="btn btn-ghost">
+                            <span>Contactar</span>
+                        </a>
+                    </div>
+
+                    <!-- Puntos rápidos de valor -->
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <span class="stat-value">3</span>
+                            <span class="stat-label">Tecnologías Clave (HTML/CSS/JS)</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Código Nativo & Responsive</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value">Ing.</span>
+                            <span class="stat-label">En Formación Universitaria</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Visual: Avatar con Tarjeta Glassmorphism -->
+                <div class="hero-visual">
+                    <div class="profile-card-wrapper">
+                        <!-- Anillo decorativo y resplandor -->
+                        <div class="profile-glow"></div>
+                        
+                        <div class="profile-card">
+                            <div class="profile-image-container">
+                                <img src="assets/profile.jpg" alt="Foto de perfil de Santiago Higuera (kayrost)" class="profile-avatar">
+                                <div class="profile-status-indicator" title="Activo y desarrollando"></div>
+                            </div>
+
+                            <div class="profile-info">
+                                <h3 class="profile-name">Santiago Higuera</h3>
+                                <p class="profile-handle">@kayrost</p>
+                                <div class="profile-tags">
+                                    <span class="tech-pill">Frontend</span>
+                                    <span class="tech-pill">Sistemas</span>
+                                    <span class="tech-pill">Junior</span>
+                                </div>
+                            </div>
+
+                            <!-- Mini badge flotante de tecnologías -->
+                            <div class="floating-tech-badge badge-html" title="HTML5 Semántico">
+                                <img src="assets/html.png" alt="HTML5" width="28" height="28">
+                                <span>HTML5</span>
+                            </div>
+                            <div class="floating-tech-badge badge-css" title="CSS3 & Responsive Design">
+                                <img src="assets/css.png" alt="CSS3" width="28" height="28">
+                                <span>CSS3</span>
+                            </div>
+                            <div class="floating-tech-badge badge-js" title="JavaScript Moderno">
+                                <img src="assets/js.png" alt="JavaScript" width="28" height="28">
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <section id="Projectos">
-                 <div>
-                    <h3>Por los momentos no hay ningun proyecto...</h3>
-                     <button onclick="location.reload();">Recargar Pagina</button> <!--no sabia de esta funcion -->
-                 </div>
+
+        <!-- ==================== SECCIÓN 2: SOBRE MÍ ==================== -->
+        <section class="section about-section" id="sobre-mi">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Conóceme más</span>
+                    <h2 class="section-title">Sobre Mí</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card-main">
+                        <div class="quote-box">
+                            <svg class="quote-icon" width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                            </svg>
+                            <p class="quote-text">
+                                «Junior por hoy, pero con aspiraciones firmes a dominar nuevos lenguajes, frameworks y crecer tanto en el ámbito laboral como en el personal.»
+                            </p>
+                        </div>
+
+                        <div class="about-text-content">
+                            <p>
+                                Mi nombre es <strong>Santiago Higuera</strong>. Soy un desarrollador junior enfocado en el desarrollo web frontend y estudiante apasionado de <strong>Ingeniería en Sistemas</strong>. Me fascina entender cómo funcionan las cosas por debajo: desde la semántica estructurada de la web hasta la interactividad dinámica y la lógica algorítmica.
+                            </p>
+                            <p>
+                                Actualmente me dedico a afianzar al máximo las bases nativas de la web (<strong>HTML5</strong>, <strong>CSS3</strong> y <strong>JavaScript</strong>), asegurando que cada proyecto que realizo sea rápido, responsive, accesible y visualmente agradable en cualquier dispositivo.
+                            </p>
+                        </div>
+
+                        <div class="about-highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                                </div>
+                                <div class="highlight-text">
+                                    <h4>Código Limpio</h4>
+                                    <p>Estructuras semánticas bien comentadas y buenas prácticas web.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                                </div>
+                                <div class="highlight-text">
+                                    <h4>100% Responsivo</h4>
+                                    <p>Diseño Mobile-First adaptado tanto a pantallas grandes como a teléfonos.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                                </div>
+                                <div class="highlight-text">
+                                    <h4>Crecimiento Continuo</h4>
+                                    <p>Constante aprendizaje de nuevas librerías, metodologías y herramientas.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                </div>
+                                <div class="highlight-text">
+                                    <h4>Resolución de Problemas</h4>
+                                    <p>Capacidad analítica cultivada en los estudios de Ingeniería de Sistemas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="contacto">
-            <form>
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" placeholder="Usuario/nombre">
-                <label for="Apellido">Apellido</label>
-                <input type="text" id="Apellido" placeholder="Apellido">
-                <label for="correo">Correo</label>
-                <input type="email" id="correo" placeholder="Usuario/nombre">
-                <label for="comentario">Comentario</label>
-                <textarea id="comentario"></textarea> <!--por que simplemente no pusieron label type:textarea  en vez de poner una etiqueta especifica -->
-                <input type="submit" value="Enviar">
-            </form>
+
+        <!-- ==================== SECCIÓN 3: HABILIDADES TÉCNICAS ==================== -->
+        <section class="section skills-section" id="habilidades">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Mi Stack de Desarrollo</span>
+                    <h2 class="section-title">Habilidades Técnicas</h2>
+                    <p class="section-intro">Las 3 tecnologías fundamentales que domino y aplico activamente en mis desarrollos:</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Tarjeta HTML5 -->
+                    <article class="skill-card card-html">
+                        <div class="skill-card-top">
+                            <div class="skill-icon-wrapper html-glow">
+                                <img src="assets/html.png" alt="Icono de HTML5" class="skill-icon-img">
+                            </div>
+                            <div class="skill-badge">Estructura & Semántica</div>
+                        </div>
+                        <h3 class="skill-name">HTML5</h3>
+                        <p class="skill-desc">
+                            Base estructural de toda aplicación web moderna. Enfoque en código semántico para maximizar accesibilidad (a11y) y posicionamiento SEO orgánico.
+                        </p>
+                        <ul class="skill-feature-list">
+                            <li><span class="bullet">✓</span> Etiquetas Semánticas (header, main, section, nav)</li>
+                            <li><span class="bullet">✓</span> Formularios modernos con validación nativa</li>
+                            <li><span class="bullet">✓</span> Buenas prácticas de Accesibilidad (ARIA)</li>
+                            <li><span class="bullet">✓</span> Metaetiquetas y Open Graph para compartir</li>
+                        </ul>
+                        <div class="skill-level-bar">
+                            <div class="skill-progress" style="--skill-pct: 90%;"></div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta CSS3 -->
+                    <article class="skill-card card-css">
+                        <div class="skill-card-top">
+                            <div class="skill-icon-wrapper css-glow">
+                                <img src="assets/css.png" alt="Icono de CSS3" class="skill-icon-img">
+                            </div>
+                            <div class="skill-badge">Estilos & Maquetación</div>
+                        </div>
+                        <h3 class="skill-name">CSS3</h3>
+                        <p class="skill-desc">
+                            Creación de interfaces limpias, estéticas y completamente responsivas. Dominio de sistemas de layout modernos, variables y efectos visuales fluidos.
+                        </p>
+                        <ul class="skill-feature-list">
+                            <li><span class="bullet">✓</span> Flexbox & CSS Grid multidimensional</li>
+                            <li><span class="bullet">✓</span> Media Queries y enfoque Mobile-First</li>
+                            <li><span class="bullet">✓</span> Variables CSS (Custom Properties) & Temas</li>
+                            <li><span class="bullet">✓</span> Transiciones, Keyframe Animations & Glassmorphism</li>
+                        </ul>
+                        <div class="skill-level-bar">
+                            <div class="skill-progress" style="--skill-pct: 85%;"></div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta JavaScript -->
+                    <article class="skill-card card-js">
+                        <div class="skill-card-top">
+                            <div class="skill-icon-wrapper js-glow">
+                                <img src="assets/js.png" alt="Icono de JavaScript" class="skill-icon-img">
+                            </div>
+                            <div class="skill-badge">Lógica & Dinamismo</div>
+                        </div>
+                        <h3 class="skill-name">JavaScript (ES6+)</h3>
+                        <p class="skill-desc">
+                            El motor interactivo de la web moderna. Manipulación reactiva del DOM, captura de eventos, asincronía y control de flujo para dar vida a la interfaz.
+                        </p>
+                        <ul class="skill-feature-list">
+                            <li><span class="bullet">✓</span> Manipulación dinámica del DOM & Listeners</li>
+                            <li><span class="bullet">✓</span> ES6+ (Arrow functions, Destructuring, Template literals)</li>
+                            <li><span class="bullet">✓</span> Asincronía: Fetch API, Promesas & Async/Await</li>
+                            <li><span class="bullet">✓</span> Validación de formularios y LocalStorage</li>
+                        </ul>
+                        <div class="skill-level-bar">
+                            <div class="skill-progress" style="--skill-pct: 80%;"></div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Herramientas Complementarias -->
+                <div class="tools-band">
+                    <span class="tools-band-label">Herramientas & Entorno de Trabajo:</span>
+                    <div class="tools-tags">
+                        <span class="tool-tag">Git</span>
+                        <span class="tool-tag">GitHub</span>
+                        <span class="tool-tag">VS Code</span>
+                        <span class="tool-tag">Chrome DevTools</span>
+                        <span class="tool-tag">Mobile-First Workflow</span>
+                        <span class="tool-tag">Figma Básico</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN 4: PROYECTOS ==================== -->
+        <section class="section projects-section" id="proyectos">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Mis Creaciones</span>
+                    <h2 class="section-title">Proyectos Destacados</h2>
+                    <p class="section-intro">Aplicando los conceptos de HTML, CSS y JavaScript en soluciones reales e interactivas:</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Filtros de Categoría -->
+                <div class="projects-filter" role="tablist" aria-label="Filtros de proyectos">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                    <button class="filter-btn" data-filter="destacado" role="tab" aria-selected="false">Destacados</button>
+                    <button class="filter-btn" data-filter="javascript" role="tab" aria-selected="false">JavaScript</button>
+                    <button class="filter-btn" data-filter="css" role="tab" aria-selected="false">Diseño UI / CSS</button>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Proyecto 1: Portafolio Personal v2.0 -->
+                    <article class="project-card" data-category="destacado css">
+                        <div class="project-header">
+                            <div class="project-folder-icon">
+                                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kayrost/Portafolio" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Código fuente de Portafolio en GitHub" title="Ver código en GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="#inicio" class="icon-link" aria-label="Demo en vivo de Portafolio" title="Ver demo en vivo">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Portafolio Web Profesional v2.0</h3>
+                        <p class="project-desc">
+                            Rediseño integral de mi portafolio aplicando las mejores convenciones de diseño web moderno: maquetación semántica, paleta Obsidian & Gold, diseño 100% responsivo para móviles y microinteracciones fluidas.
+                        </p>
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS3 Grid/Flex</span>
+                            <span>JavaScript ES6+</span>
+                            <span>Glassmorphism</span>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2: TaskFlow - Aplicación de Gestión de Tareas -->
+                    <article class="project-card" data-category="destacado javascript">
+                        <div class="project-header">
+                            <div class="project-folder-icon">
+                                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kayrost" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Código en GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <button type="button" class="icon-link open-modal-btn" data-project="taskflow" aria-label="Abrir detalles de TaskFlow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">TaskFlow Pro - Gestor de Metas</h3>
+                        <p class="project-desc">
+                            Aplicación web interactiva que permite crear, filtrar, editar y persistir tareas en el navegador. Demuestra manipulación avanzada del DOM, eventos personalizados y sincronización con LocalStorage.
+                        </p>
+                        <div class="project-tags">
+                            <span>JavaScript ES6</span>
+                            <span>DOM API</span>
+                            <span>LocalStorage</span>
+                            <span>Filtros Reactivos</span>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3: DevMetrics - Calculadora & Conversor Interactivo -->
+                    <article class="project-card" data-category="javascript css">
+                        <div class="project-header">
+                            <div class="project-folder-icon">
+                                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/kayrost" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Código en GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <button type="button" class="icon-link open-modal-btn" data-project="devmetrics" aria-label="Abrir detalles de DevMetrics">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">DevMetrics - Utilidad de Conversión</h3>
+                        <p class="project-desc">
+                            Herramienta de cálculo y conversión instantánea para desarrolladores frontend: unidades px a rem/em, cálculo de contrastes de color WCAG y estimador de tiempos de lectura de contenido.
+                        </p>
+                        <div class="project-tags">
+                            <span>JavaScript Lógico</span>
+                            <span>CSS Variables</span>
+                            <span>Validación en Vivo</span>
+                            <span>UI Limpia</span>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Callout hacia GitHub -->
+                <div class="projects-cta">
+                    <p>¿Quieres explorar más experimentos, snippets y proyectos en progreso?</p>
+                    <a href="https://github.com/kayrost?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        <span>Ver más en GitHub (@kayrost)</span>
+                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN 5: TRAYECTORIA Y METAS ==================== -->
+        <section class="section roadmap-section" id="trayectoria">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Evolución & Futuro</span>
+                    <h2 class="section-title">Mi Trayectoria</h2>
+                    <p class="section-intro">El camino recorrido y los siguientes hitos de mi desarrollo profesional:</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="timeline">
+                    <!-- Paso 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Inicio de Formación</span>
+                            <h3 class="timeline-title">Ingeniería en Sistemas</h3>
+                            <p class="timeline-desc">
+                                Inicio de la carrera universitaria. Desarrollo del pensamiento lógico-matemático, fundamentos de computación, estructuras de datos y resolución analítica de problemas.
+                            </p>
+                            <span class="timeline-tag">Universidad · Ciencias de la Computación</span>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker current"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Etapa Actual</span>
+                            <h3 class="timeline-title">Desarrollador Frontend Junior</h3>
+                            <p class="timeline-desc">
+                                Consolidación de la tríada nativa de la web: <strong>HTML5</strong>, <strong>CSS3</strong> y <strong>JavaScript</strong>. Creación de proyectos personales, diseño responsive y control de versiones con Git/GitHub.
+                            </p>
+                            <span class="timeline-tag tag-active">Enfoque Primario · Web Nativa</span>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker future"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Próximos Objetivos</span>
+                            <h3 class="timeline-title">Frameworks Modernos & Ecosistema Fullstack</h3>
+                            <p class="timeline-desc">
+                                Expansión hacia TypeScript, frameworks reactivos de la industria (React / Vue) y fundamentos de backend para convertirme en un desarrollador versátil y de alto impacto.
+                            </p>
+                            <span class="timeline-tag tag-future">Metas de Aprendizaje</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN 6: CONTACTO ==================== -->
+        <section class="section contact-section" id="contacto">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Iniciemos una conversación</span>
+                    <h2 class="section-title">Ponte en Contacto</h2>
+                    <p class="section-intro">¿Tienes alguna pregunta, oportunidad de colaboración o simplemente quieres saludar? ¡Escríbeme!</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Información y Redes -->
+                    <div class="contact-info-panel">
+                        <h3 class="info-title">Conectemos</h3>
+                        <p class="info-desc">
+                            Estoy abierto a oportunidades de pasantías, proyectos colaborativos, feedback sobre mi código y nuevos retos que me permitan seguir aprendiendo.
+                        </p>
+
+                        <div class="info-items">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">GitHub Profile</span>
+                                    <a href="https://github.com/kayrost" target="_blank" rel="noopener noreferrer" class="info-link">github.com/kayrost</a>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">Instagram</span>
+                                    <a href="https://www.instagram.com/kayrost_/" target="_blank" rel="noopener noreferrer" class="info-link">@kayrost_</a>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </div>
+                                <div class="info-details">
+                                    <span class="info-label">Disponibilidad</span>
+                                    <span class="info-value">Proyectos Junior & Prácticas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botón de copia rápida de usuario -->
+                        <div class="quick-copy-box">
+                            <span class="copy-box-title">Mi usuario oficial:</span>
+                            <div class="copy-box-field">
+                                <span class="copy-text" id="copyUsername">kayrost</span>
+                                <button type="button" class="copy-btn" id="copyBtn" title="Copiar usuario">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <span class="copy-tooltip" id="copyTooltip">¡Copiado!</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Contacto Moderno -->
+                    <div class="contact-form-panel">
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nombre" class="form-label">Nombre *</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej. Santiago" required autocomplete="given-name">
+                                    <span class="form-error-msg" id="errorNombre">Por favor ingresa tu nombre</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Ej. Higuera" autocomplete="family-name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="correo" class="form-label">Correo Electrónico *</label>
+                                <input type="email" id="correo" name="correo" class="form-control" placeholder="ejemplo@correo.com" required autocomplete="email">
+                                <span class="form-error-msg" id="errorCorreo">Ingresa un correo electrónico válido</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="asunto" class="form-label">Asunto</label>
+                                <input type="text" id="asunto" name="asunto" class="form-control" placeholder="Consulta sobre un proyecto o colaboración">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comentario" class="form-label">Mensaje o Comentario *</label>
+                                <textarea id="comentario" name="comentario" class="form-control form-textarea" rows="5" placeholder="Cuéntame sobre tu proyecto o duda..." required minlength="10"></textarea>
+                                <span class="form-error-msg" id="errorComentario">El mensaje debe tener al menos 10 caracteres</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block btn-submit" id="btnSubmit">
+                                <span class="btn-text">Enviar Mensaje</span>
+                                <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </button>
+                        </form>
+
+                        <!-- Mensaje de confirmación interactiva -->
+                        <div class="form-feedback success" id="formSuccessFeedback" style="display: none;" role="alert">
+                            <div class="feedback-icon">✓</div>
+                            <div class="feedback-content">
+                                <h4>¡Mensaje preparado con éxito!</h4>
+                                <p>Gracias por contactarme. He procesado tu mensaje localmente y responderé a la brevedad posible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-             <h3>Redes:</h3>
-             <div class="redes">
-                <a href="#"><!--no tengo facebook disponible-->><img src="https://images.icon-icons.com/836/PNG/512/Facebook_icon-icons.com_66805.png"></a>
-                <a href="https://www.instagram.com/kayrost_/"><img src="https://images.icon-icons.com/1753/PNG/512/iconfinder-social-media-applications-3instagram-4102579_113804.png"></a>
-                <a href="https://github.com/kayros360g-lang"><img src="https://images.icon-icons.com/936/PNG/512/github-logo_icon-icons.com_73546.png"></a>
-             </div>
-             <p>copyright @Santiago Higuera</p>
+
+    <!-- ==================== MODAL DE PROYECTO ==================== -->
+    <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-dialog">
+            <button type="button" class="modal-close" id="modalClose" aria-label="Cerrar modal">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Se llena dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#inicio" class="nav-brand">
+                    <span class="brand-bracket">&lt;</span>
+                    <span class="brand-name">Santiago Higuera</span>
+                    <span class="brand-tag">/&gt;</span>
+                </a>
+                <p class="footer-tagline">
+                    Desarrollador Frontend Junior & Estudiante de Ingeniería en Sistemas.
+                </p>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="footer-socials">
+                <a href="https://github.com/kayrost" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub de Santiago Higuera (kayrost)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/kayrost_/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram de Santiago Higuera (@kayrost_)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="#contacto" class="social-icon-btn" aria-label="Enviar Correo">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p class="copyright">
+                    &copy; 2026 Santiago Higuera (<strong>kayrost</strong>). Todos los derechos reservados.
+                </p>
+                <button type="button" class="back-to-top" id="backToTop" aria-label="Volver arriba">
+                    <span>Volver arriba</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                </button>
+            </div>
+        </div>
     </footer>
+
+    <!-- JavaScript Principal -->
+    <script src="js/main.js"></script>
 </body>
 </html>
